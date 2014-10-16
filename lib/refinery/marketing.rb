@@ -5,6 +5,7 @@ module Refinery
 
   module Marketing
     require 'refinery/marketing/engine'
+    require 'refinery/marketing/amqp_messenger'
 
     class << self
       attr_writer :root
