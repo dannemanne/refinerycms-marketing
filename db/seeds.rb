@@ -10,7 +10,7 @@ Refinery::I18n.frontend_locales.each do |lang|
     end
   end
 
-  url = "/brands"
+  url = "/marketing/brands"
   if defined?(Refinery::Page) && Refinery::Page.where(:link_url => url).empty?
     page = Refinery::Page.create(
       :title => 'Brands',
