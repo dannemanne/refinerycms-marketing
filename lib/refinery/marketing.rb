@@ -3,7 +3,7 @@ require 'refinerycms-core'
 module Refinery
   autoload :MarketingGenerator, 'generators/refinery/marketing_generator'
 
-  module Brands
+  module Marketing
     require 'refinery/marketing/engine'
 
     class << self
