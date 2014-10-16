@@ -1,11 +1,9 @@
 en:
   refinery:
     plugins:
-      brands:
-        title: Brands
-      shows:
-        title: Shows
-    brands:
+      marketing:
+        title: Marketing
+    marketing:
       admin:
         shared:
           links:

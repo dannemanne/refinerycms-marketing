@@ -33,7 +33,7 @@ module Refinery
       end
 
       def find_page
-        @page = ::Refinery::Page.where(:link_url => "/brands").first
+        @page = ::Refinery::Page.where(:link_url => "/marketing/brands").first
       end
 
       def no_of_pages

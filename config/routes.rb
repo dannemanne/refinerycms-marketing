@@ -2,7 +2,7 @@ Refinery::Core::Engine.routes.draw do
 
   # Frontend routes
   namespace :marketing do
-    resources :brands, :path => '', :only => [:index, :show]
+    resources :brands, :only => [:index, :show]
   end
 
   # Admin routes
