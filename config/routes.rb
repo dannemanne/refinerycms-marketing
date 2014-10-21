@@ -2,7 +2,10 @@ Refinery::Core::Engine.routes.draw do
 
   # Frontend routes
   namespace :marketing do
+    root to: 'marketing#index'
+
     resources :brands, :only => [:index, :show]
+    resources :contacts, :only => [:index, :show]
   end
 
   # Admin routes
@@ -20,6 +23,12 @@ Refinery::Core::Engine.routes.draw do
         end
         member do
           post :sync
+        end
+      end
+      resources :contacts, :except => :show do
+        collection do
+          post :update_positions
+          post :synchronise
         end
       end
     end

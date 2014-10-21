@@ -1,0 +1,39 @@
+<% content_for :body do %>
+  <h1>Contacts</h1>
+
+  <table class="display js_contacts_data_table" cellspacing="0" style="width: 100%;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Is Organisation?</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>Tags</th>
+      </tr>
+    </thead>
+
+    <tfoot>
+      <tr>
+        <th>Name</th>
+        <th>Is Organisation?</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>Tags</th>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @contacts.each do |contact| %>
+        <tr>
+          <td><%= contact.name %></td>
+          <td><%= contact.is_organisation ? 'Yes' : 'No' %></td>
+          <td><%= contact.email %></td>
+          <td><%= contact.country %></td>
+          <td><%= contact.tags_joined_by_comma %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= render '/refinery/content_page' %>
