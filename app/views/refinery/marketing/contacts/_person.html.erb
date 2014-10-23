@@ -63,15 +63,15 @@
   <% end %>
 
   <% if contact.website.present? %>
-    <p class="cc-attribute cc-website"><%= contact.website %></p>
+    <p class="cc-attribute cc-website"><%=link_to contact.website.gsub(/http:\/\/|https:\/\//, ''), contact.website %></p>
   <% end %>
 
   <% if contact.facebook.present? %>
-    <p class="cc-attribute cc-facebook">Facebook: <%= contact.facebook %></p>
+    <p class="cc-attribute cc-facebook"><%= link_to contact.facebook.gsub(/http:\/\/|https:\/\//, ''), contact.facebook %></p>
   <% end %>
 
   <% if contact.twitter.present? %>
-    <p class="cc-attribute cc-twitter">Twitter: <%= contact.twitter %></p>
+    <p class="cc-attribute cc-twitter"><%= link_to 'twitter.com/'<<contact.twitter, 'https://twitter.com/'<<contact.twitter %></p>
   <% end %>
 
   <% if contact.linked_in.present? %>
