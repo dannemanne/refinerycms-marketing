@@ -64,7 +64,7 @@ en:
           other: Other Shows
       contacts:
         show:
-          other: Other Contacts
+          similar: Similar Contacts
   activerecord:
     attributes:
       'refinery/marketing/brand':

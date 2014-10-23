@@ -5,10 +5,10 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Is Organisation?</th>
+        <th>Organisation</th>
         <th>Email</th>
+        <th>Phone</th>
         <th>Country</th>
-        <th>Tags</th>
       </tr>
     </thead>
 
@@ -17,19 +17,39 @@
         <th>Name</th>
         <th>Is Organisation?</th>
         <th>Email</th>
+        <th>Phone</th>
         <th>Country</th>
-        <th>Tags</th>
       </tr>
     </tfoot>
 
     <tbody>
       <% @contacts.each do |contact| %>
         <tr>
-          <td><%= contact.name %></td>
-          <td><%= contact.is_organisation ? 'Yes' : 'No' %></td>
-          <td><%= contact.email %></td>
+          <td><%= link_to contact.name, refinery.marketing_contact_path(contact) %></td>
+          <td>
+            <% if contact.is_organisation %>
+              <%= contact.name %>
+            <% else %>
+              <% if contact.organisation.present? %>
+                <%= link_to contact.organisation.name, refinery.marketing_contact_path(contact.organisation) %>
+              <% else %>
+                <%= contact.organisation_name %>
+              <% end %>
+            <% end %>
+          </td>
+          <td>
+            <% if contact.email.present? %>
+              <%= mail_to contact.email %>
+            <% end %>
+          </td>
+          <td>
+            <% if contact.phone.present? %>
+              <%= contact.phone %>
+            <% elsif contact.mobile.present? %>
+              <%= contact.mobile %>
+            <% end %>
+          </td>
           <td><%= contact.country %></td>
-          <td><%= contact.tags_joined_by_comma %></td>
         </tr>
       <% end %>
     </tbody>

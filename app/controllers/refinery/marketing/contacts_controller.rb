@@ -2,7 +2,7 @@ module Refinery
   module Marketing
     class ContactsController < ::ApplicationController
 
-      before_filter :find_all_contacts
+      before_filter :find_all_contacts, only: [:index]
       before_filter :find_page
 
       def index
@@ -22,7 +22,7 @@ module Refinery
       protected
 
       def find_all_contacts
-        @contacts = Contact.order('position ASC')
+        @contacts = Contact.order('name ASC')
       end
 
       def find_page

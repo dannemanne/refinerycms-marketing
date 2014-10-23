@@ -67,7 +67,7 @@ module Refinery
       # Retrieves all Contacts from database that are not flagged as removed
       # from Base and arranges them in a Hash where the keys are the id's from Base.
       def refinery_contacts
-        @_rc ||= Refinery::Contacts::Contact.where(removed_from_base: false)
+        @_rc ||= Refinery::Marketing::Contact.where(removed_from_base: false)
       end
 
       def grouped_refinery_contacts
