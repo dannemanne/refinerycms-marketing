@@ -10,7 +10,7 @@ Refinery::Core::Engine.routes.draw do
 
   # Admin routes
   namespace :marketing, :path => '' do
-    namespace :admin, :path => Refinery::Core.backend_route do
+    namespace :admin, :path => "#{Refinery::Core.backend_route}/marketing" do
       resources :brands, :except => :show do
         collection do
           post :update_positions
