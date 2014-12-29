@@ -32,7 +32,7 @@ module Refinery
 
             # Goes through all the contacts in the database that were not present
             # in the list of contacts from Base and flags them as removed.
-            bc_ids = base_contacts.map(&:id)
+            bc_ids = base_contacts.map(&:base_id)
             refinery_contacts.select { |rc| !bc_ids.include?(rc.id) }.each do |removed_contact|
               removed_contact.removed_from_base = true
               removed_contact.save!
