@@ -18,7 +18,7 @@ module Refinery
       validates :base_id, presence: true, uniqueness: true
       validates :name,    presence: true
 
-      def contacts_with_same_tags
+      def contacts_with_same_tags(limit = 20)
         if tags_joined_by_comma.present?
           cond = (tags_joined_by_comma || '').split(', ').inject([[]]) { |acc, tag|
             acc[0] << 'tags_joined_by_comma LIKE ?'
@@ -26,7 +26,7 @@ module Refinery
             acc
           }
           cond[0] = cond[0].join(' AND ')
-          Contact.where(cond).order(:name)
+          Contact.where(cond).order(:name).limit(limit)
         else
           []
         end
